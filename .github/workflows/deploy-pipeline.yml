@@ -111,14 +111,14 @@ jobs:
 
       - name: Get Terraform output environment file name
         if: env.TERRAFORM_ACTION == 'apply'
-        working-directory: ./iac\iac
+        working-directory: ./iac
         run: |
           ENVIRONMENT_FILE_NAME_VALUE=$(terraform output -raw environment_file_name | grep -Eo "^[^:]+" | tail -n 1)
           echo "ENVIRONMENT_FILE_NAME=$ENVIRONMENT_FILE_NAME_VALUE" >> $GITHUB_ENV
 
       - name: Get Terraform output env file bucket name
         if: env.TERRAFORM_ACTION == 'apply'
-        working-directory: ./iac\iac
+        working-directory: ./iac
         run: |
           ENV_FILE_BUCKET_NAME_VALUE=$(terraform output -raw env_file_bucket_name | grep -Eo "^[^:]+" | tail -n 1)
           echo "ENV_FILE_BUCKET_NAME=$ENV_FILE_BUCKET_NAME_VALUE" >> $GITHUB_ENV

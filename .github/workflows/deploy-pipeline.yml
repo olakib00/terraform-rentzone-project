@@ -42,7 +42,7 @@ jobs:
         working-directory: ./iac
         run: terraform init
 
-      - name: Run Terraform apply/destroy
+      - name: Run Terraform apply
         working-directory: ./iac
         run: terraform ${{ env.TERRAFORM_ACTION }}-auto-approve
 
